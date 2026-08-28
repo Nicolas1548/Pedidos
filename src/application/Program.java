@@ -1,8 +1,10 @@
 package application;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 
 import entities.Client;
@@ -14,8 +16,11 @@ import entities.Product;
 public class Program {
 
 	public static void main(String[] args) {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
+		
 
 		System.out.println("Enter cliente data:");
 		System.out.print("Name: ");
@@ -52,14 +57,19 @@ public class Program {
 
 		System.out.println("");
 		IO.println("ORDER SUMMARY: ");
-		IO.println("Order moment: " + moment);
+		IO.println("Order moment: " + sdf.format(moment));
 		IO.println("Order status: " + status);
 
 		IO.println(client);
 		IO.println("Order items:");
 
-		System.out.println(order.getItems()+"\n");
-		IO.println("Total: " + order.total());
+		
+		for (OrderItem x : order.getItems()) {
+			System.out.println(x);
+		}
+		
+		
+		IO.println("Total: " + String.format("$%.2f", order.total()))	;
 
 		sc.close();
 	}

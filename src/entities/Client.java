@@ -1,12 +1,14 @@
 package entities;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Client {
 
 	private String name;
 	private String email;
 	private LocalDate birthDate;
+	DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
 	public Client() {
 
@@ -45,7 +47,7 @@ public class Client {
 
 	@Override
 	public String toString() {
-		return "Client: " + name + " (" + birthDate + ") " + "-" + email;
+		return "Client: " + name + " (" + birthDate.format(fmt) + ")" + " - " + email;
 	}
 
 }

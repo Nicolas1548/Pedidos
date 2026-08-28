@@ -69,7 +69,7 @@ public class Program {
 		}
 		
 		
-		IO.println("Total: " + String.format("$%.2f", order.total()))	;
+		IO.println("Total price: " + String.format("$%.2f", order.total()))	;
 
 		sc.close();
 	}

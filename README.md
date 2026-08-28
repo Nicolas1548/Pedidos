@@ -1,6 +1,3 @@
-# Order Summary System
-
-Exercício de Programação Orientada a Objetos em Java: leitura dos dados de um pedido (com N itens, definido pelo usuário) e exibição de um sumário formatado do pedido.
 
 ## 📋 Descrição
 
